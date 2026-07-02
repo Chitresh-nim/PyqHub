@@ -1,0 +1,68 @@
+{% extends 'PyqApp/layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>AKTU Previous Years Papers</h1>
+        <p>Find, Download, Bookmark previous year papers for all branches and subjects</p>
+        <input type="text", id="search-box" name="search", placeholder="Search by subject code or subject name">
+        <p>Data Structure  Mathematics  DBMS  Electronics  Computer Network</p>
+        <div id="results"></div>
+        <hr>
+    </section>
+    <section>
+        <div>
+
+            <h4>Browse By Branch</h4>
+            <a href="api/branch/cse">
+                <button class="branch-btn">
+                CSE
+                <p>Computer Science</p>
+            </button>
+            </a>
+            
+            <a href="api/branch/me">
+                <button class="branch-btn">
+                ME
+                <p>Mechanical Engg.</p>
+            </button>
+            </a>
+            <a href="api/branch/it">
+                <button class="btanch-btn">
+                IT
+                <p>Information Tech</p>
+            </button>
+            </a>
+            <a href="api/branch/ece">
+                <button type="submit">
+                ECE   
+                <p>Electronics</p>
+            </button>
+            </a>
+            <a href="api/branch/ce">
+                <button type="submit">
+                CE 
+                <p>Civil Engg</p>
+            </button>
+            </a>
+        </div>
+        <div>
+            <h4>
+                Recently uploaded papers
+            </h4>
+            <ul>
+                {% for paper in recent_papers %}
+                    <li>
+                        <a href="api/subject/{{paper.subejct.id}}">
+                            {{ paper.subject.title}}
+                            {{ paper.year}}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    
+
+{% endblock %}

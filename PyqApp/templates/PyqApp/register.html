@@ -1,0 +1,27 @@
+{% extends 'PyqApp/auth_base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <h1> Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>Username</p>
+        {{ form.username }}
+
+        <p>Email</p>
+        {{ form.email }}
+
+        <p>Password</p>
+        {{ form.password1 }}
+
+        <p>Confirm password </p>
+        {{ form.password2 }}
+
+        <button type="submit">
+            Register
+        </button>
+    </form>
+    <a href="{% url 'login'%}">Login</a>
+{% endblock %}

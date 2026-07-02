@@ -1,0 +1,31 @@
+{% extends 'PyqApp/layout.html' %}
+
+{% block title %}Subject_detail{% endblock %}
+
+{% block content %}
+{% if papers %}
+    {% for paper in papers%}
+       <div>
+        <h3>{{ paper.subject.title }}</h3>
+        <p>
+            Subject Code: {{ paper.subject.code }}
+        </p>
+        <p>
+            Branch : {{ paper.subject.branch }}
+        </p>
+        <p>
+            Semester : {{ paper.subject.semester }}
+        </p>
+        <p>
+            Year : {{ paper.year }}
+        </p>
+            <a href="{{ paper.drive_link }}">🔷</a>
+       </div> 
+    <hr>
+    {% endfor %}
+
+{% else %}
+       <p>No papers avaiable for selected branch</p>
+{% endif %}
+
+{% endblock %}

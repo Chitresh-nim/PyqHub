@@ -1,0 +1,54 @@
+{% extends 'PyqApp/layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div>
+        <div class="sidebar">
+                <div class="profile-section">
+                        {% if profile.profile_picture %}
+                                <img src="{{ profile.profile_picture.url }}" class="profile-pic" width="120">
+
+                        {% endif %}
+                                
+                        <h3>
+                                {{ request.user.username }}
+                        </h3>
+                </div>
+                <div class="sidebar-menu">
+                        <ul>
+                                <li>
+                                        <a href="{% url 'edit_profile' %}">Edit profile</a>
+                                </li>
+                                <li>
+                                        <a href="{% url 'logout' %}">
+                                                Logout
+                                        </a>
+                                </li>
+                        </ul>
+                </div>
+        </div>
+        <div class="content">
+                <h2>Bookmarked papers</h2>
+                {% if bookmarks %}
+                        {% for bookmark in bookmarks %}
+                                <div class="paper-card">
+                                        <a href="/api/subjects/{{ bookmark.paper.subject_id}}/">
+                                                {{ bookmark.paper.subject.title }}
+                                        </a>
+                                        <p>
+                                                {{ bookmark.paper.subject.code }}
+                                        </p>
+                                        <p>
+                                                Semester: {{ bookmark.paper.subject.semester}}
+                                        </p>   
+                                </div>
+                        {% endfor %}
+                {% else %}
+                        <h4>Your bookmarks will appear here</h4>
+                {% endif %}
+
+
+        </div>
+</div>
+{% endblock %}

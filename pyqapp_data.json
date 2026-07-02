@@ -1,0 +1,145 @@
+[
+{
+  "model": "PyqApp.subject",
+  "pk": 1,
+  "fields": {
+    "title": "DATA STRUCTURE",
+    "code": "BCS301",
+    "branch": "CSE",
+    "semester": 3
+  }
+},
+{
+  "model": "PyqApp.subject",
+  "pk": 2,
+  "fields": {
+    "title": "DEEP LEARNING",
+    "code": "BAI701",
+    "branch": "CSE",
+    "semester": 7
+  }
+},
+{
+  "model": "PyqApp.subject",
+  "pk": 3,
+  "fields": {
+    "title": "MATHEMATICS 1",
+    "code": "BAS103",
+    "branch": "CSE",
+    "semester": 1
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 1,
+  "fields": {
+    "subject": 1,
+    "year": "2025-26",
+    "drive_link": "https://drive.google.com/file/d/1SHdq7xDIJBAqT4iLYVTyR9GlAxAH_Awt/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 2,
+  "fields": {
+    "subject": 1,
+    "year": "2024-25",
+    "drive_link": "https://drive.google.com/file/d/1SWliSnRXgIBWTqiR6zoCDD4sSAj8o0XE/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 3,
+  "fields": {
+    "subject": 1,
+    "year": "2023-24",
+    "drive_link": "https://drive.google.com/file/d/1SexjpAwvdTkdmeDMwfWqR6Q21JuUeafB/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 4,
+  "fields": {
+    "subject": 2,
+    "year": "2025-26",
+    "drive_link": "https://drive.google.com/file/d/1Sh59wHqAugtOTE4HPtzAGy8wt8O1Ab4L/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 5,
+  "fields": {
+    "subject": 2,
+    "year": "2024-25",
+    "drive_link": "https://drive.google.com/file/d/1SjIALhGozvFaTnBGMkFzTi8uji-rGgJ_/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 6,
+  "fields": {
+    "subject": 3,
+    "year": "2025-26",
+    "drive_link": "https://drive.google.com/file/d/1Sjr7EEqCyKvkp8zAfSN1HSLrqmLuYGr2/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.pyq",
+  "pk": 7,
+  "fields": {
+    "subject": 3,
+    "year": "2024-25",
+    "drive_link": "https://drive.google.com/file/d/1SlchjW2jwWH3IYK-A7lwVVJGrRnxaXwy/view?usp=drivesdk"
+  }
+},
+{
+  "model": "PyqApp.bookmark",
+  "pk": 10,
+  "fields": {
+    "user": 2,
+    "paper": 1
+  }
+},
+{
+  "model": "PyqApp.bookmark",
+  "pk": 12,
+  "fields": {
+    "user": 2,
+    "paper": 6
+  }
+},
+{
+  "model": "PyqApp.bookmark",
+  "pk": 14,
+  "fields": {
+    "user": 2,
+    "paper": 2
+  }
+},
+{
+  "model": "PyqApp.profile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "profile_picture": "profile_pictures/luffyPfp_9F6Xubr.jpeg"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$pM2bgBeytxOnVDw2zIn07p$G5SV019UL2I/igghqTlQq+btamY/1HRwDiP42kHi1gQ=",
+    "last_login": "2026-06-17T08:06:10.515Z",
+    "is_superuser": true,
+    "username": "Chitresh",
+    "first_name": "",
+    "last_name": "",
+    "email": "chit@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-16T06:49:45.771Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

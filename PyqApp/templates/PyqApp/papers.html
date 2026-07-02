@@ -1,0 +1,54 @@
+{% extends 'PyqApp/layout.html' %}
+
+{% block title %}Papers{% endblock %}
+
+{% block content %}
+    <h3>All Question Papers</h3>
+    <div>
+        <label>Branch</label>
+        <select name="branch">
+            <option value="">All Branches</option>
+            <option value="cse">CSE</option>
+            <option value="it">IT</option>
+            <option value="me">ME</option>
+            <option value="ce">CE</option>
+            <option value="ece">ECE</option>
+        </select>
+
+        <label>Semester</label>
+        <select name="semester">
+            <option value="">All Semester</option>
+            <option value="1">Sem 1</option>
+            <option value="2">Sem 2</option>
+            <option value="3">Sem 3</option>
+            <option value="4">Sem 4</option>
+            <option value="5">Sem 5</option>
+            <option value="6">Sem 6</option>
+            <option value="7">Sem 7</option>
+            <option value="8">Sem 8</option>
+        </select>
+
+        <label>Year</label>
+        <select name="year">
+            <option value="">All Years</option>
+            <option value="2025-26">2025-26</option>
+            <opiton value="2024-25">2024-25</opiton>
+            <option value="2023-24">2023-24</option>
+            <option value="2022-23">2022-23</option>
+            <option value="2021-22">2021-22</option>
+        </select>
+        <button id="apply-btn">
+            Apply filters
+        </button>
+    </div>
+    <div id="paper-container">
+    </div>
+
+    <div id="pagination">
+            <button id="prev-btn">Previous</button>
+            <span id="page-info"></span>
+            <button id="next-btn">Next</button> 
+    </div>
+
+
+{% endblock %}

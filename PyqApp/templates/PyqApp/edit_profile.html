@@ -1,0 +1,25 @@
+{% extends "PyqApp/layout.html"%}
+{% block title %}Edit profile{% endblock %}
+
+{% block content %}
+<div>
+    <h3>{{ request.user.username }}</h3>
+    <img src="{{ profile.profile_picture.url }}" class="profile-pic" width="120" id="profilePreview">
+</div>
+<div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Change Profile Picture:</label>
+        <input type="file", name="profile_picture" id="profileInput">
+        <label>Change Name:</label>
+        <input type="text", name="username", value="{{ request.user.username }}">
+        <button type="submit">
+            Save
+        </button>
+
+    </form>
+</div>
+
+
+
+{% endblock %}

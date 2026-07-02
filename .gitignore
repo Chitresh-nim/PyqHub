@@ -1,0 +1,31 @@
+#Virtual Environment
+venv/
+.env 
+
+#python
+__pycache__/
+*.py[cod]
+*.pyo 
+
+#database 
+db.sqlite3
+
+#media
+media/
+
+#vscode
+.vscode/
+
+#logs
+*.log 
+
+#os files
+.Ds_Store
+Thumbs.db
+
+#Environment variable
+.env.*
+
+#python cache
+.pytest_cache/
+.mypy_cache/
