@@ -131,3 +131,24 @@ MEDIA_ROOT = BASE_DIR / "media"
 STATIC_URL = 'static/'
 
 LOGIN_URL = 'login/'
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console":{
+            "class": "logging.StreamHandler",  
+        },
+    },
+    "root":{
+        "handlers": ["console"],
+        "level": "INFO",
+    },
+    "loggers": {
+        "":{
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+}

@@ -3,6 +3,11 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages%}
+           {{ message }}
+        {% endfor%}
+    {% endif %}
     <section>
         <h1>AKTU Previous Years Papers</h1>
         <p>Find, Download, Bookmark previous year papers for all branches and subjects</p>

@@ -3,6 +3,11 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
+{% if messages %}
+        {% for message in messages %}
+                {{ message }}
+        {% endfor %}
+{% endif %}
 <div>
         <div class="sidebar">
                 <div class="profile-section">

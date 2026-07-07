@@ -9,15 +9,19 @@
 
         <p>Username</p>
         {{ form.username }}
+        {{ form.username.errors }}
 
         <p>Email</p>
         {{ form.email }}
+        {{ form.email.errors }}
 
         <p>Password</p>
         {{ form.password1 }}
+        {{ form.password1.errors }}
 
         <p>Confirm password </p>
         {{ form.password2 }}
+        {{ form.password2.errors }}
 
         <button type="submit">
             Register

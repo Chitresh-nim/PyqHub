@@ -2,6 +2,11 @@
 {% block title %}Edit profile{% endblock %}
 
 {% block content %}
+{% if messages %}
+        {% for message in messages %}
+                {{ message }}
+        {% endfor %}
+{% endif %}
 <div>
     <h3>{{ request.user.username }}</h3>
     <img src="{{ profile.profile_picture.url }}" class="profile-pic" width="120" id="profilePreview">
