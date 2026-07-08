@@ -169,7 +169,9 @@ def filter_paper(request):
             "has_next": page_obj.has_next(),
             "has_previous": page_obj.has_previous(),
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error occured in filter_paper")
+
         return JsonResponse({
             "success": False,
             "message": "Internal server error",
