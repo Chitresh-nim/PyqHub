@@ -8,14 +8,17 @@ from django.contrib import messages
 from .models import Subject, PYQ, Bookmark
 from django.db.models import Q
 from django.core.paginator import Paginator
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, throttle_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .serializers import PaperSerializer, SearchSerializer
 import logging
-
+from rest_framework.throttling import UserRateThrottle
 
 logger = logging.getLogger(__name__)
+
+class SearchThrottle(UserRateThrottle):
+    rate = "30/min"
 
 def check_auth(request):
     if not request.user.is_authenticated:
@@ -24,6 +27,7 @@ def check_auth(request):
     return True
         
 def home(request):
+    
     if not check_auth(request):
         return redirect('login')
     recent_papers = PYQ.objects.order_by("-id")[:7]
@@ -96,6 +100,8 @@ def logout(request):
     return redirect('login')
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@throttle_classes([SearchThrottle])
 def search_subjects(request):
     try:
         q = request.GET.get("q", "").strip()
