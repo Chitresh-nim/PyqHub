@@ -29,3 +29,5 @@ Thumbs.db
 #python cache
 .pytest_cache/
 .mypy_cache/
+
+staticfiles/
