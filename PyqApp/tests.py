@@ -79,6 +79,11 @@ class DashhboardTest(BaseTest):
 
 class SearchApiTest(BaseTest):
     def test_search(self):
+        logged_in = self.client.login(
+            username=self.user.username,
+            password="password123"
+        )
+        print(logged_in)
         response = self.client.get(reverse("search_subjects"),
                                    {
                                       "q": "Deep" 
