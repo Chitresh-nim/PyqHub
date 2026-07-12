@@ -3,5 +3,19 @@
 {% block title %}Admin{% endblock %}
 
 {% block content %}
-<h1>hello admin</h1>
+<div class="stats-container">
+    <div class="stat-card">
+        <h3>{{ total_users }}</h3>
+        <p>Total users</p>
+    </div>
+    <div class="stat-card">
+        <h3>{{ total_subjects }}</h3>
+        <p>Total subjects</p>
+    </div>
+    <div class="stat-card">
+        <h3>{{ total_papers }}</h3>
+        <p>Total papers</p>
+    </div>
+</div>
+
 {% endblock %}

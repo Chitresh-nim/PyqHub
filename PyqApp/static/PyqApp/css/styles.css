@@ -1075,3 +1075,43 @@ font-size:24px;
 }
 
 }
+/* ADMIN DASHBOARD */
+
+.stats-container{
+    display:flex;
+    gap:10px;
+    justify-content:space-between;
+    margin:50px;
+    flex-wrap:wrap;
+    flex-direction: row;
+    margin: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.stat-card{
+    width:200px;
+    background:#2563eb;
+    color:white;
+    border-radius:80px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+    transition:.25s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.stat-card h2{
+    font-size:42px;
+    margin:0;
+}
+
+.stat-card p{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:600;
+    opacity:.9;
+}

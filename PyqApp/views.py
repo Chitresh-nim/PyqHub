@@ -52,7 +52,15 @@ def admin_dash(request):
     if not request.user.is_staff:
         logger.warning(f"{request.user.username} attempted to access admin_dash")
         return redirect('home')
-    return render(request, "PyqApp/admin_dash.html")
+    total_users = User.objects.count()
+    total_papers = PYQ.objects.count()
+    total_subjects = Subject.objects.count()
+    context ={
+        "total_users" : total_users,
+        "total_subjects" : total_subjects,
+        "total_papers" : total_papers
+    }
+    return render(request, "PyqApp/admin_dash.html", context)
 
 def register(request):
     if request.user.is_authenticated:
