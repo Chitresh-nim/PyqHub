@@ -4,7 +4,9 @@
 
 {% block content %}
     <h3>All Question Papers</h3>
-    <div>
+    <div class="papers-layout">
+        <aside class="filter-panel">
+
         <label>Branch</label>
         <select name="branch">
             <option value="">All Branches</option>
@@ -40,14 +42,19 @@
         <button id="apply-btn">
             Apply filters
         </button>
-    </div>
-    <div id="paper-container">
-    </div>
+    </aside>
 
-    <div id="pagination">
+    <section class="papers-panel">
+        <div id="paper-container">
+        </div>
+
+        <div id="pagination">
             <button id="prev-btn">Previous</button>
             <span id="page-info"></span>
             <button id="next-btn">Next</button> 
+        </div>
+
+    </section>
     </div>
 
 

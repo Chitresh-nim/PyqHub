@@ -16,19 +16,21 @@ function createPaperCard(paper) {
     const heartIcon = isBookmarked ? '❤️' : '🤍';
     
     return `
-        <div class="paper-card">
-            <h3>${paper.title}</h3>
+        <div class="papers-card">
+        <div class="papers-info">
+            <h3 class="title-paper">${paper.title}</h3>
             <p>${paper.code}</p>
-            <p>${paper.branch}</p>
-            <p>Semester: ${paper.semester}</p>
-            <p>${paper.year}</p>
-            <a href="/api/subjects/${paper.subject_id}">
+            <p>${paper.branch} • Semester: ${paper.semester} • ${paper.year}</p>
+        </div>
+        <div class="papers-actions">
+            <a class="view-btn" href="/api/subjects/${paper.subject_id}">
                 View Papers
             </a>
             <button class="toggle_bookmark" data-paper-id="${paper.id}">
                 <span class="bookmark-icon" style="color: ${heartColor};">${heartIcon}</span>
                 <span class="bookmark_message"></span>
             </button>
+        </div>
         </div>
     `;
 }
@@ -91,10 +93,9 @@ if (searchBox) {
             results.innerHTML = "";
             data.forEach(subject => {
                 results.innerHTML += `
-                    <div>
-                        <a href="api/subjects/${subject.id}/">
-                            ${subject.title}
-                            <small>${subject.code}</small>
+                        <a class="search-result" href="api/subjects/${subject.id}/">
+                            <h3>${subject.title}</h3>
+                            <p>${subject.code}</p>
                         </a>
                     </div>
                 `;

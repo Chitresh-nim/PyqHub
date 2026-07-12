@@ -1,4 +1,5 @@
 {% extends 'PyqApp/layout.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
@@ -8,66 +9,77 @@
            {{ message }}
         {% endfor%}
     {% endif %}
-    <section>
-        <h1>AKTU Previous Years Papers</h1>
-        <p>Find, Download, Bookmark previous year papers for all branches and subjects</p>
-        <input type="text", id="search-box" name="search", placeholder="Search by subject code or subject name">
-        <p>Data Structure  Mathematics  DBMS  Electronics  Computer Network</p>
-        <div id="results"></div>
-        <hr>
-    </section>
-    <section>
-        <div>
-
-            <h4>Browse By Branch</h4>
-            <a href="api/branch/cse">
-                <button class="branch-btn">
-                CSE
-                <p>Computer Science</p>
-            </button>
-            </a>
-            
-            <a href="api/branch/me">
-                <button class="branch-btn">
-                ME
-                <p>Mechanical Engg.</p>
-            </button>
-            </a>
-            <a href="api/branch/it">
-                <button class="btanch-btn">
-                IT
-                <p>Information Tech</p>
-            </button>
-            </a>
-            <a href="api/branch/ece">
-                <button type="submit">
-                ECE   
-                <p>Electronics</p>
-            </button>
-            </a>
-            <a href="api/branch/ce">
-                <button type="submit">
-                CE 
-                <p>Civil Engg</p>
-            </button>
-            </a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AKTU Previous Years Papers</h1>
+            <p>Find, Download, Bookmark previous year papers for all branches and subjects</p>
+            <div class="search-box">
+                <input type="text", id="search-box" name="search", placeholder="Search by subject code or subject name">
+                <button>Search</button>
+            </div>
+            <p id="subtitle-blue">Data Structure  Mathematics  DBMS  Electronics  Computer Network</p>
+            <div id="results"></div>
+            <hr>
         </div>
-        <div>
-            <h4>
+    </section>
+    <div class="home-grid">
+        <section class="branch-section">
+            <h2>Browse By Branch</h2>
+            <div class="branch-grid">
+                <a href="api/branch/cse" class="branch-card">
+                    <button class="branch-btn">
+                    CSE
+                    <p>Computer Science</p>
+                </button>
+                </a>
+                
+                <a href="api/branch/me" class="branch-card">
+                    <button class="branch-btn">
+                    ME
+                    <p>Mechanical Engg.</p>
+                </button>
+                </a>
+                <a href="api/branch/it" class="branch-card">
+                    <button class="branch-btn">
+                    IT
+                    <p>Information Tech</p>
+                </button>
+                </a>
+                <a href="api/branch/ece" class="branch-card">
+                    <button class="branch-btn">
+                    ECE   
+                    <p>Electronics</p>
+                </button>
+                </a>
+                <a href="api/branch/ce" class="branch-card">
+                    <button class="branch-btn">
+                    CE 
+                    <p>Civil Engg</p>
+                </button>
+                </a>
+            </div>
+    </section>
+    <section class="recent-section">
+            <h2>
                 Recently uploaded papers
-            </h4>
-            <ul>
+            </h2>
+        <div class="recent-paper-list">
                 {% for paper in recent_papers %}
-                    <li>
-                        <a href="api/subject/{{paper.subejct.id}}">
-                            {{ paper.subject.title}}
-                            {{ paper.year}}
+                    
+                        <a href="api/subjects/{{paper.subject.id}}" class="recent-paper-card">
+                            <h3>
+                                {{paper.subject.title}}
+                            </h3>
+                            <p>
+                                {{ paper.year}}
+                            </p>
                         </a>
-                    </li>
+                    
                 {% endfor %}
-            </ul>
+            
         </div>
     </section>
+    </div>
     
 
 {% endblock %}

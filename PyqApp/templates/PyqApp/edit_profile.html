@@ -7,12 +7,14 @@
                 {{ message }}
         {% endfor %}
 {% endif %}
-<div>
+<div class="edit-profile-container">
+
+<div class="profile-header">
     <h3>{{ request.user.username }}</h3>
-    <img src="{{ profile.profile_picture.url }}" class="profile-pic" width="120" id="profilePreview">
+    <img src="{{ profile.profile_picture.url }}" class="edit-profile-pic" width="120" id="profilePreview">
 </div>
 <div>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class="edit-profile-form">
         {% csrf_token %}
         <label>Change Profile Picture:</label>
         <input type="file", name="profile_picture" id="profileInput">
@@ -23,6 +25,7 @@
         </button>
 
     </form>
+</div>
 </div>
 
 

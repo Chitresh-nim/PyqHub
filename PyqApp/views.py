@@ -27,10 +27,10 @@ def check_auth(request):
     return True
         
 def home(request):
-    
+
     if not check_auth(request):
         return redirect('login')
-    recent_papers = PYQ.objects.order_by("-id")[:7]
+    recent_papers = PYQ.objects.order_by("-id")[:5]
     return render(request, "PyqApp/home.html",{"recent_papers":recent_papers})
 
 def papers(request):
@@ -50,6 +50,7 @@ def admin_dash(request):
     if not check_auth(request):
         return redirect('login')
     if not request.user.is_staff:
+        logger.warning(f"{request.user.username} attempted to access admin_dash")
         return redirect('home')
     return render(request, "PyqApp/admin_dash.html")
 
@@ -61,7 +62,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            logger.info(f"{request.user.username} logged in")
+            logger.info(f"{request.user.username} Registered in")
             messages.success(request, "Account created successfully")
             return redirect('login')
         
@@ -82,6 +83,7 @@ def login(request):
                 user_obj = User.objects.get(email=email)
             except:
                 messages.error(request, "Email doest not exist")
+                logger.exception("exception: email doest not exist")
                 return render(request, "PyqApp/login.html", {"form": form})
                 
 
@@ -90,13 +92,19 @@ def login(request):
 
             if user is not None:
                 login_session(request, user)
+                logger.info(f"{request.user.username} logged in")
                 return redirect("home")
+            else:
+                messages.error(request, "invalid Email or Password")
+                return render(request, "PyqApp/login.html", {"form": form})
+        return render(request, "PyqApp/login.html", {"form": form})
     else:
         form = LoginForm()
         return render(request, "PyqApp/login.html", {"form": form})
     
 def logout(request):
     logout_session(request)
+    logger.info(f"{request.user.username} logged out")
     return redirect('login')
 
 @api_view(['GET'])
@@ -112,6 +120,7 @@ def search_subjects(request):
 
         return Response(data)
     except Exception as e:
+        logger.exception("exception: search subject failed")
         return JsonResponse({
             "success": False,
             "message": "Internal Server error",

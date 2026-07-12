@@ -5,21 +5,29 @@
 {% block content %}
 {% if papers %}
     {% for paper in papers%}
-       <div>
+       <div class="subject-section">
         <h3>{{ paper.subject.title }}</h3>
-        <p>
-            Subject Code: {{ paper.subject.code }}
+        <p><strong>
+            Subject Code:
+        </strong>
+             {{ paper.subject.code }}
         </p>
-        <p>
-            Branch : {{ paper.subject.branch }}
+        <p><strong>
+            Branch :
+        </strong>
+             {{ paper.subject.branch }}
         </p>
-        <p>
-            Semester : {{ paper.subject.semester }}
+        <p><strong>
+            Semester :
+        </strong>
+             {{ paper.subject.semester }}
         </p>
-        <p>
-            Year : {{ paper.year }}
+        <p><strong>
+            Year :
+        </strong>
+             {{ paper.year }}
         </p>
-            <a href="{{ paper.drive_link }}">🔷</a>
+            <a class="download-btn" href="{{ paper.drive_link }}">🔷Download PDF🔷</a>
        </div> 
     <hr>
     {% endfor %}

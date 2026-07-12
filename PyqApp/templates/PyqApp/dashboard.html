@@ -8,11 +8,11 @@
                 {{ message }}
         {% endfor %}
 {% endif %}
-<div>
+<div class="dashboard-container">
         <div class="sidebar">
                 <div class="profile-section">
                         {% if profile.profile_picture %}
-                                <img src="{{ profile.profile_picture.url }}" class="profile-pic" width="120">
+                                <img src="{{ profile.profile_picture.url }}" class="dashboard-profile-pic" width="120">
 
                         {% endif %}
                                 
@@ -37,16 +37,17 @@
                 <h2>Bookmarked papers</h2>
                 {% if bookmarks %}
                         {% for bookmark in bookmarks %}
-                                <div class="paper-card">
-                                        <a href="/api/subjects/{{ bookmark.paper.subject_id}}/">
+                                <div class="bookmark-card">
+                                        <h3>
                                                 {{ bookmark.paper.subject.title }}
-                                        </a>
+                                        </h3>
                                         <p>
                                                 {{ bookmark.paper.subject.code }}
                                         </p>
                                         <p>
                                                 Semester: {{ bookmark.paper.subject.semester}}
-                                        </p>   
+                                        </p>  
+                                        <a  href="/api/subjects/{{bookmark.paper.subject_id}}"> View papers</a>" 
                                 </div>
                         {% endfor %}
                 {% else %}
