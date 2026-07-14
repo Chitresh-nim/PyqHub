@@ -1,8 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PyqProject.storage import SupabaseStorage, ProfileStorage
+import uuid
+import os
 
 # Create your models here.
+
+def profile_upload_path(instance, filename):
+    ext = os.path.splitext(filename)[1]
+    return f"profile_pictures/{uuid.uuid4()}{ext}"
+
+
 class Subject(models.Model):
     title = models.CharField(max_length=200)
     code = models.CharField(max_length=20)
@@ -32,7 +40,7 @@ class Bookmark(models.Model):
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to="profile_pictures/",
+    profile_picture = models.ImageField(upload_to=profile_upload_path,
                                         storage=ProfileStorage(),
                                         default="profile_pictures/default.png",
                                         blank=True)

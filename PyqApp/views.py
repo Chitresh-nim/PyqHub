@@ -227,9 +227,17 @@ def edit_profile(request):
     if request.method == "POST":
         try:
             if "profile_picture" in request.FILES:
-                profile.profile_picture = (
-                    request.FILES["profile_picture"]
+                file = request.FILES["profile_picture"]
+                if file.size > 2 * 1024 *1024:
+                    messages.error(request, "image must be smaller than 2mb.")
+                    return render(request, "PyqApp/edit_profile.html", {"profile": profile},
+                                  )
+            if not file.content_type.startswith("image/"):
+                messages.error(request, "please upload an image.")
+                return render(request, "PyqApp/edit_profile.html", {"profile": profile},
                 )
+            profile.profile_picture =file
+
 
             username = request.POST.get("username","").strip()
             if username:
