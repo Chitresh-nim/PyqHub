@@ -3,7 +3,7 @@ from PyqProject.supabase_client import supabase
 
 
 class SupabaseStorage(Storage):
-    bucket_name = "pdfs"
+    bucket_name = "papers"
 
     def _save(self, name, content):
         content.seek(0)
