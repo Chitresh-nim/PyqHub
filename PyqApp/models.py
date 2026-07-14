@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PyqProject.storage import SupabaseStorage
 
 # Create your models here.
 class Subject(models.Model):
@@ -14,7 +15,10 @@ class Subject(models.Model):
 class PYQ(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     year = models.CharField(max_length=10)
-    drive_link = models.URLField()
+    drive_link = models.URLField(blank=True)
+    pdf = models.FileField(upload_to="papers/",
+                           storage=SupabaseStorage(),
+                            blank=True, null=True)
     
     def __str__(self):
         return f"{self.subject.title} - {self.year}"
