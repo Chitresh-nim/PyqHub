@@ -19,3 +19,6 @@ class SupabaseStorage(Storage):
 
     def url(self, name):
         return supabase.storage.from_(self.bucket_name).get_public_url(name)
+
+class ProfileStorage(SupabaseStorage):
+    bucket_name = "profiles"
