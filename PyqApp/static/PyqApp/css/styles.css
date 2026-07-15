@@ -1118,3 +1118,40 @@ font-size:24px;
 #profile-msg{
     color: #1d4ed8;
 }
+
+.footer{
+    margin-top: 60px;
+    padding: 18px 15px;
+    border-top: 1px solid #e5e7eb;
+    background: #fff;
+    text-align: center;
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.footer p{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer span{
+    color: #9ca3af;
+}
+
+.footer strong{
+    color: #2563eb;
+}
+
+.footer a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
